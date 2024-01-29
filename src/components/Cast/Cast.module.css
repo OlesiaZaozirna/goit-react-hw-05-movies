@@ -1,0 +1,12 @@
+.CastList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.Actors {
+  width: calc(20% - 20px);
+  margin-top: 20px;
+  box-sizing: border-box;
+}

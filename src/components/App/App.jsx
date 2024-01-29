@@ -1,5 +1,3 @@
-import HomePage from 'Pages/Home_Page/Home';
-import css from './App.module.css'
 import Header from 'components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from 'Pages/Home_Page/Home';
@@ -14,12 +12,14 @@ export const App = () => {
     <div className="container">
       <Header />
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home />} />
         <Route path="movies" element={<Movies />} />
-        <Route path="movies/:movieId" element={<MovieDetails />} />
-        <Route path="cast" element={<Cast />} />
-        <Route path="reviews" element={<Reviews />} />
-        {/*<Route path="*" element={<NotFound />} />*/}
+        <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route index element={<MovieDetails />} />
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

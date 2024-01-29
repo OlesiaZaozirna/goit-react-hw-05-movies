@@ -1,4 +1,4 @@
-import css from './Home.module.css';
+import css from './Home.module.css'
 import React, { useEffect, useState } from 'react';
 import { fetchTrendingMovies } from 'Services/tmbdAPI';
 import { toast } from 'react-toastify';
@@ -19,9 +19,10 @@ const Home = () => {
         const { results } = await fetchTrendingMovies();
 
         setMovies(results);
+        setIsLoading(false);
       } catch (error) {
         setError(error.message);
-        toast.error(`Whoops, something went wrong: ${error.message}`);
+        toast.error(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -33,7 +34,7 @@ const Home = () => {
   return (
     <>
       <h1 className={css.HomeTitle}>Trending today</h1>
-      {error && <p>{error}</p>}
+      {error && <p>Whoops, something went wrong: {error}</p>}
       {movies.length > 0 && <MovieList movies={movies} />}
       {isLoading && <Loader />}
       <Outlet />
@@ -41,4 +42,6 @@ const Home = () => {
   );
 };
 
-export default Home;
+
+
+export default Home
