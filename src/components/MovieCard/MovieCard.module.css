@@ -1,0 +1,52 @@
+.MovieList {
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+.MovieCard {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 200px;
+  height: 360px;
+  background-color: transparent;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 10px 10px 31px 8px rgba(0, 163, 245, 0.49);
+}
+
+.MovieCard:hover,
+.MovieCard:focus {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 31px 8px rgba(255, 255, 255, 0.792);
+}
+
+.MovieCardImg {
+  width: 200px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.MovieCardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+}
+
+.MovieCardTitle {
+  font-family: 'Roboto Medium', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #eee9e9;
+  text-align: center;
+}
+
+.MovieCardLink {
+  text-decoration: none;
+  color: inherit;
+}

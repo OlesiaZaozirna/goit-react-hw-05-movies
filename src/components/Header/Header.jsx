@@ -1,12 +1,17 @@
 import css from './Header.module.css'
-import { Link } from 'react-router-dom'
+import { Suspense } from 'react'
+import { NavLink, Outlet } from 'react-router-dom'
+import { Loader } from 'components/Loader/Loader'
 
 const Header = () => {
     return (
-        <ul>
-            <Link to="/">Home</Link>
-            <Link to="/movies">Movies</Link>
-        </ul>
+       <div className={css.header_container}>
+      <NavLink to = '/' className={css.navlink}>Home</NavLink> 
+        <NavLink to = '/movies' className={css.navlink}>Movies</NavLink> 
+        <Suspense fallback={<Loader/>}>
+          <Outlet />
+        </Suspense>
+        </div>
     )
 }
 

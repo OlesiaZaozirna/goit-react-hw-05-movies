@@ -1,0 +1,29 @@
+.header_container {
+  padding: 20px;
+  margin-top: 25px;
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+  text-align: center;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.active {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.navlink {
+  padding: 35px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.navlink:hover,
+.navlink:focus {
+  color: #b4b4b4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

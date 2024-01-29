@@ -10,6 +10,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const TREND_URL = `${BASE_URL}/trending/movie/day`;
 const SEARCH_URL = `${BASE_URL}/search/movie`;
 const API_KEY = '259918b03cdd3627de7453af9144ee1e'
+export const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 
 const params = {
   params: {
