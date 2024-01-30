@@ -1,26 +1,29 @@
-import Header from 'components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import Home from 'Pages/Home_Page/Home';
-import Movies from 'Pages/Movies_Page/Movies';
-import MovieDetails from 'Pages/MovieDetails_Page/MovieDetails';
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/Reviews/Reviews';
+import { lazy } from 'react';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import NotFound from 'Pages/NotFound_Page/NotFound';
+
+const Home = lazy(() => import('Pages/Home_Page/Home'));
+const Movies = lazy(()=> import('Pages/Movies_Page/Movies'));
+const MovieDetails = lazy(()=> import ('Pages/MovieDetails_Page/MovieDetails'));
+const Cast = lazy(()=> import('components/Cast/Cast'));
+const Reviews = lazy(()=> import ('components/Reviews/Reviews'));
 
 export const App = () => {
   return (
     <div className="container">
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path='/' element={<SharedLayout />}> 
+        <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:movieId" element={<MovieDetails />}>
-          <Route index element={<MovieDetails />} />
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
          <Route path="*" element={<NotFound />} />
+      </Route>
       </Routes>
     </div>
   );
 };
+ 

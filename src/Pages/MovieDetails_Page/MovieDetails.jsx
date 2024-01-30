@@ -1,12 +1,9 @@
 import css from './MovieDetails.module.css'
-import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import React, {Suspense, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Loader } from 'components/Loader/Loader';
-import { Link, NavLink, Route, Routes, useLocation, useParams} from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation, useParams} from 'react-router-dom';
 import { fetchMovieDetails, IMG_URL } from 'Services/tmbdAPI';
-
-const Cast = lazy(() => import('components/Cast/Cast'));
-const Reviews = lazy(() => import('components/Reviews/Reviews'));
 
 const MovieDetails = () => {
   const [movieDet, setMovieDet] = useState(null);
@@ -49,8 +46,8 @@ const MovieDetails = () => {
       {isLoading && <Loader />}
       {movieDet && (
         <div className={css.MovieDetailsContainer}>
-          <Link to={backLink.current}>
-            <button className={css.Button}> Go back </button>
+          <Link to={backLink.current} className={css.Button}>
+             Go back 
           </Link>
           <div className={css.MovieDetailsCard}>
             <div className={css.MovieDetailsInfo}>
@@ -75,16 +72,13 @@ const MovieDetails = () => {
               </div>
             </div>
             <h3 className={css.MovieDetailsName}>More information</h3>
-            <div>
-              <NavLink to={`/movies/${movieId}/cast`}><button className={css.Button}>Cast</button></NavLink>
-<NavLink to={`/movies/${movieId}/reviews`}><button className={css.Button}>Reviews</button></NavLink>
+            <div className={css.MoreInfoContainer}>
+              <NavLink to={`/movies/${movieId}/cast`} className={css.Button}>Cast</NavLink>
+              <NavLink to={`/movies/${movieId}/reviews`} className={css.Button}>Reviews</NavLink>
             </div>
             <div>
               <Suspense fallback={<Loader />}>
-                <Routes>
-                  <Route path="cast" element={<Cast />} />
-                  <Route path="reviews" element={<Reviews />} />
-                </Routes>
+                <Outlet />
               </Suspense>
             </div>
           </div>

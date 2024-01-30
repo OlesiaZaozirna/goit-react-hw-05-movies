@@ -8,6 +8,7 @@
 
 .Button {
   display: inline-block;
+  text-decoration: none;
   width: 120px;
   height: 48px;
   border: none;
@@ -21,6 +22,9 @@
   font-size: 20px;
   margin: 10px 0;
   margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Button:hover {
@@ -79,4 +83,9 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+}
+.MoreInfoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }

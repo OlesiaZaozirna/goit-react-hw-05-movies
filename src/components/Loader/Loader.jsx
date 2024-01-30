@@ -6,6 +6,7 @@ export const Loader = () => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    zIndex: '999'
     };
 
 
@@ -30,7 +31,8 @@ const colors = [
     ariaLabel="color-ring-loading"
     wrapperStyle={{}}
     wrapperClass="color-ring-wrapper"
-    colors={colors}
+        colors={colors}
+        
       />
     </div>
   );
